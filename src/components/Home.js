@@ -1,13 +1,24 @@
 import React, { Component } from 'react'
+import Dog from './Dog'
 
 export default class Home extends Component {
+    state = {
+        pic: ""
+    }
+
+    componentDidMount(){
+        fetch('https://dog.ceo/api/breeds/image/random')
+        .then(response => response.json)
+        .then(data => this.setState({
+            pic: data.message
+        }))
+    }
+
     render() {
         return (
             <div>
-                <h1>
-                    Home Page
-                </h1>
+                <Dog pic={this.state.pic}/>
             </div>
         )
     }
-}
+};
