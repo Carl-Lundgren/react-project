@@ -2,21 +2,31 @@ import React, { Component } from 'react'
 
 export default class Dog extends Component {
     state = {
-
+        likes: false,
+        favorites: this.props.favorite || false
     }
 
 
     button = (type) =>{
-        fetch(`http://localhost:5000/${type}` ,{method: 'POST',
-            headers: 
-            {
-                "Content-Type": "application/json",
-                Accept: "application/json"
-            },
-            body: JSON.stringify({
-                pic: this.props.pic
+
+        if (this.state[type] === false){
+            this.setState({[type]: true})
+
+            fetch(`http://localhost:5000/${type}` ,{method: 'POST',
+                headers: 
+                {
+                    "Content-Type": "application/json",
+                    Accept: "application/json"
+                },
+                body: JSON.stringify({
+                    pic: this.props.pic
+                })
             })
-        })
+        } else {
+            this.setState({[type]: false})
+
+            fetch(`http://localhost:5000/${type}/${this.props.id}` ,{method: 'DELETE'})
+        }
     }
 
     render() {

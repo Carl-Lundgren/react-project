@@ -18,7 +18,7 @@ export default class Favorites extends Component {
         return (
             <div>
                 <h3> Your Favorites </h3>
-                {this.state.pictures.map((item) => <Dog pic={item.pic}/>)}
+                {this.state.pictures.map((item) => <Dog pic={item.pic} id={item.id} favorite={true}/>)}
             </div>
         )
     }

@@ -18,7 +18,7 @@ export default class Likes extends Component {
         return (
             <div>
                 <h3> Your Likes </h3>
-                {this.state.pictures.map((item) => <Dog pic={item.pic}/>)}
+                {this.state.pictures.map((item) => <Dog pic={item.pic} id={item.id}/>)}
             </div>
         )
     }
