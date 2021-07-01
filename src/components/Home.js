@@ -3,21 +3,21 @@ import Dog from './Dog'
 
 export default class Home extends Component {
     state = {
-        pic: ""
+        pictures: []
     }
 
     componentDidMount(){
-        fetch('https://dog.ceo/api/breeds/image/random')
-        .then(response => response.json)
+        fetch('https://dog.ceo/api/breeds/image/random/4')
+        .then(response => response.json())
         .then(data => this.setState({
-            pic: data.message
+            pictures: data.message
         }))
     }
 
     render() {
         return (
             <div>
-                <Dog pic={this.state.pic}/>
+                {this.state.pictures.map((item) => <Dog pic={item}/>)}
             </div>
         )
     }

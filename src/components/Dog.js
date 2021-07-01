@@ -2,28 +2,29 @@ import React, { Component } from 'react'
 
 export default class Dog extends Component {
     state = {
-        like: false,
-        favorite: false
+
     }
 
-    function button(e, type){
-        e.preventDefault
-        this.setState({
-            type: !this.state[type]
+
+    button = (type) =>{
+        fetch(`http://localhost:5000/${type}` ,{method: 'POST',
+            headers: 
+            {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            body: JSON.stringify({
+                pic: this.props.pic
+            })
         })
-        if (e.style.backgroundColor === '000') {
-            e.style.backgroundColor = 'F00';
-        } else {
-            e.style.backgroundColor = '000';
-        }
     }
 
     render() {
         return (
             <div>
-                <img src={pic} alt="Cute Dog" width="250" />
-                <button onSubmit={button(e, like)} style={{color:FFF}, {backgroundColor:000}}> Like</button>
-                <button onSubmit={button(e, favorite)} style={{color:FFF}, {backgroundColor:000}}> Favorite</button>
+                <img src={this.props.pic} alt="Cute Dog" width="500" />
+                <button onClick={() => this.button('likes')} style={{color:'FFF', backgroundColor:'000'}}> Like</button>
+                <button onClick={() => this.button('favorites')} style={{color:'FFF', backgroundColor:'000'}}> Favorite</button>
             </div>
         )
     }

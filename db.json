@@ -1,16 +1,8 @@
 {
   "favorites": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
+    
   ],
   "likes": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
+    
   ]
 }
