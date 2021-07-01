@@ -7,7 +7,7 @@ export default class Favorites extends Component {
     }
 
     componentDidMount(){
-        fetch('http://localhost:5000/favorites')
+        fetch('http://localhost:5000/pictures?favorite=true')
         .then(response => response.json())
         .then(data => this.setState({
             pictures: data
@@ -18,7 +18,7 @@ export default class Favorites extends Component {
         return (
             <div>
                 <h3> Your Favorites </h3>
-                {this.state.pictures.map((item) => <Dog pic={item.pic} id={item.id} favorite={true}/>)}
+                {this.state.pictures.map((item) => <Dog pic={item.pic} id={item.id} favorite={item.favorite} like={item.like}/>)}
             </div>
         )
     }

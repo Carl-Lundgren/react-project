@@ -7,18 +7,22 @@ export default class Likes extends Component {
     }
 
     componentDidMount(){
-        fetch('http://localhost:5000/likes')
+        fetch('http://localhost:5000/pictures?like=true')
         .then(response => response.json())
         .then(data => this.setState({
             pictures: data
         }))
     }
 
+    removePic = (id) => {
+        console.log(id);
+    }
+
     render() {
         return (
             <div>
                 <h3> Your Likes </h3>
-                {this.state.pictures.map((item) => <Dog pic={item.pic} id={item.id}/>)}
+                {this.state.pictures.map((item) => <Dog pic={item.pic} id={item.id} favorite={item.favorite} like={item.like} onRemove={this.removePic}/>)}
             </div>
         )
     }
