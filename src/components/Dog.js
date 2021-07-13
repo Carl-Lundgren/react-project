@@ -45,11 +45,18 @@ export default class Dog extends Component {
     }
 
     render() {
+        const style = {
+            textAlign: "center",
+            padding: "1rem",
+            border: 'grey solid 1px',
+            display: "inline-grid",
+            margin: "1rem 2rem",
+          }
         return (
-            <div>
+            <div style={style}>
                 <img src={this.props.pic} alt="Cute Dog" width="500" />
-                <button onClick={() => this.button('like')} style={{color:'FFF', backgroundColor:'000'}}> Like</button>
-                <button onClick={() => this.button('favorite')} style={{color:'FFF', backgroundColor:'000'}}> Favorite</button>
+                <button onClick={() => this.button('like')} style={{backgroundColor:'#B6D0E2', border: 'white solid 5px', padding: "2px"}}> Like</button>
+                <button onClick={() => this.button('favorite')} style={{backgroundColor:'#B6D0E2', border: 'white solid 5px', padding: "2px"}}> Favorite</button>
             </div>
         )
     }
