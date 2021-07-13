@@ -3,7 +3,8 @@ import Dog from './Dog'
 
 export default class Home extends Component {
     state = {
-        pictures: []
+        pictures: [],
+        scrollLocation: 0
     }
 
     componentDidMount(){
@@ -12,6 +13,20 @@ export default class Home extends Component {
         .then(data => this.setState({
             pictures: data.message
         }))
+        window.addEventListener('scroll', this.handleScroll);
+    }
+
+    handleScroll = () => {
+        if (window.scrollY > this.state.scrollLocation+350){
+            this.setState({
+                scrollLocation: window.scrollY + 300
+            })
+            fetch('https://dog.ceo/api/breeds/image/random/2')
+            .then(response => response.json())
+            .then(data => this.setState({
+                pictures: [...this.state.pictures, ...data.message]
+            }))
+        }
     }
 
     render() {
