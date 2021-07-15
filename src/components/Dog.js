@@ -25,7 +25,6 @@ export default class Dog extends Component {
             )
         } else {
             this.setState({[type]: false}, () =>
-                
                 fetch(`http://localhost:5000/pictures/${this.props.id}` ,{method: 'PUT',
                     headers: 
                     {
@@ -47,9 +46,11 @@ export default class Dog extends Component {
     render() {
         const style = {
             textAlign: "center",
+            justifyContent: "center",
+            
             padding: "1rem",
-            border: 'grey solid 1px',
-            display: "inline-grid",
+            display: "grid",
+            gridTemplateColumns: "500px",
             margin: "1rem 2rem",
           }
         return (

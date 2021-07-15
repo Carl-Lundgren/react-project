@@ -17,9 +17,9 @@ export default class Home extends Component {
     }
 
     handleScroll = () => {
-        if (window.scrollY > this.state.scrollLocation+350){
+        if (window.scrollY > this.state.scrollLocation+200){
             this.setState({
-                scrollLocation: window.scrollY + 300
+                scrollLocation: window.scrollY+100
             })
             fetch('https://dog.ceo/api/breeds/image/random/2')
             .then(response => response.json())

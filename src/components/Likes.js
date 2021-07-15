@@ -14,13 +14,6 @@ export default class Likes extends Component {
         }))
     }
 
-    removePic = (id) => {
-        console.log(id);
-        this.setState({
-            pictures:this.state.pictures.filter(dog => dog !== id)
-        })
-    }
-
     render() {
         return (
             <div>

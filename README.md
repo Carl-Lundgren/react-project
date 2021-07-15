@@ -3,7 +3,7 @@ Dogstagram is an Instagram like app that fetches random dog pictures that can be
 Make sure to have run npm install to make sure you have the necessary packages.
 
 <usage_example>
-Use npm run dev in your terminal and go to localhost:3000 in your browser. From there you can view, like, and favorite various dog pictures. You can also navigate between the different pages through the links at the top of the screen.
+Use npm run dev in your terminal and go to localhost:3000 in your browser. From there you can view, like, and favorite various dog pictures. You can also navigate between the different pages through the links at the top of the screen. Refreshes are required to see changes to likes and favorites.
 
 Contributing to <react-project>
 To contribute to <react-project>, follow these steps:
