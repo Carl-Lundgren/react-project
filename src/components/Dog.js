@@ -38,7 +38,7 @@ export default class Dog extends Component {
                     })
                 })
                     .then(response => response.json())
-                    .then(data => this.props.onRemove(data.id))
+                    .then(data => data)
             )
         }
     }
